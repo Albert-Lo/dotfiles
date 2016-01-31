@@ -24,6 +24,7 @@ Plug 'gioele/vim-autoswap'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Yggdroot/indentLine'
 
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
@@ -54,7 +55,6 @@ au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 
 " code folding settings
-set foldmethod=syntax " fold based on indent
 set foldnestmax=10 " deepest fold is 10 levels
 set nofoldenable " don't fold by default
 set foldlevel=1
