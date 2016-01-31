@@ -1,3 +1,6 @@
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
 # set -g default-command "reattach-to-user-namespace -l zsh"
 # tmux display things in 256 colors
 set -g default-terminal "screen-256color"
@@ -91,6 +94,12 @@ bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =;
 bind-key -t vi-copy WheelUpPane halfpage-up
 bind-key -t vi-copy WheelDownPane halfpage-down
 
+bind-key < command-prompt -p "join pane from:"  "join-pane -s '%%'"
+bind-key > command-prompt -p "send pane to:"  "join-pane -t '%%'"
+
+bind-key -n C-S-Left swap-window -t -1
+bind-key -n C-S-Right swap-window -t +1
+
 bind-key x kill-pane
 
 # maximizing and restoring windows
@@ -119,3 +128,5 @@ bind -t vi-copy 'y' copy-selection
 
 source ~/dotfiles/tmux/theme.sh
 source ~/dotfiles/tmux/human.sh
+
+run '~/dotfiles/tmux/plugins/tpm/tpm'
