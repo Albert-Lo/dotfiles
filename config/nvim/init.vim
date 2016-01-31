@@ -159,8 +159,8 @@ nmap <Leader>fi :set foldmethod=indent<CR>
 nmap <Leader>[ :NERDTreeToggle<CR>
 nmap <C-p><C-w> :execute "CtrlP ".$CODE_DIR <CR>
 
-nmap { :bprevious<CR>
-nmap } :bnext<CR>
+nmap <silent> { :bprevious<CR>
+nmap <silent> } :bnext<CR>
 
 nmap <ESC> :q!<CR>
 
