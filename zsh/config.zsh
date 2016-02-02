@@ -20,6 +20,8 @@ setopt APPEND_HISTORY
 
 setopt COMPLETE_ALIASES
 
+bindkey '^r' history-incremental-search-backward
+
 # make terminal command navigation sane again
 # bindkey '^[^[[D' backward-word
 # bindkey '^[^[[C' forward-word
