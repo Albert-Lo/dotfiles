@@ -25,7 +25,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-obsession.git'
+Plug 'tpope/vim-obsession'
 
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'

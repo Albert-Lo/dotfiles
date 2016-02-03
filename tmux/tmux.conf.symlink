@@ -1,7 +1,7 @@
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 
-set -g @resurrect-processes 'ssh coffee node nodemon gulp'
+set -g @resurrect-processes 'ssh coffee node nodemon gulp hoodie vneck gloves'
 
 set -g default-command "reattach-to-user-namespace -l zsh"
 # tmux display things in 256 colors
