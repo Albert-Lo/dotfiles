@@ -87,7 +87,7 @@ set tm=500
 " switch syntax highlighting on
 syntax on
 
-set encoding=utf8
+"set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 execute "set background=".$BACKGROUND
@@ -113,7 +113,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " NERDTree setup
 
 "" close NERDTree after a file is opened
-let g:NERDTreeQuitOnOpen=0
+let g:NERDTreeQuitOnOpen=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => StatusLine
@@ -164,6 +164,7 @@ nmap <silent> { :bprevious<CR>
 nmap <silent> } :bnext<CR>
 
 nmap <ESC> :q!<CR>
+nmap <F5> :source ~/.config/nvim/init.vim<CR>
 
 map <silent> ˙ :call WinMove('h')<cr>
 map <silent> ∆ :call WinMove('j')<cr>
@@ -174,7 +175,6 @@ map ÷ <Leader>ci
 
 nnoremap <C-y> 2<C-y>
 nnoremap <C-e> 2<C-e>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
