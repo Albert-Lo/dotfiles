@@ -19,4 +19,5 @@ brew install macvim --override-system-vim
 brew install tmux
 brew install zsh
 brew install nvm
+brew install htop
 brew install neovim/neovim/neovim

@@ -15,6 +15,8 @@ alias vd='d; vim .'
 
 alias rf="rm -rf"
 
+alias nwjs='/usr/local/bin/nwjs.app/Contents/MacOS/nwjs'
+
 # Helpers
 alias grep='grep --color=auto'
 alias df='df -h' # disk free, in Gigabytes, not bytes

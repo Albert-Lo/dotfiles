@@ -34,10 +34,11 @@ export EDITOR='nvim'
 
 # add /usr/local/bin
 export PATH=/usr/local/bin:$PATH
+export PATH=~/dotfiles/bin:$PATH
 
 # add /usr/local/sbin
 if [[ -d /usr/local/sbin ]]; then
-    export PATH=/usr/local/sbin:$PATH
+  export PATH=/usr/local/sbin:$PATH
 fi
 
 #source nvm
