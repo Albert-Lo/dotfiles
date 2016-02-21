@@ -15,7 +15,7 @@ alias vd='d; vim .'
 
 alias rf="rm -rf"
 
-alias nwjs='/usr/local/bin/nwjs.app/Contents/MacOS/nwjs'
+alias nwjs='/Applications/nwjs.app/Contents/MacOS/nwjs'
 
 # Helpers
 alias grep='grep --color=auto'

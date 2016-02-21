@@ -140,14 +140,27 @@ let g:vim_json_syntax_conceal = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" Ag searcher using Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 
 xnoremap <  <gv
 xnoremap >  >gv
 
-nmap <C-s> :w<CR>
-imap <C-s> <Esc>:w<CR>a
-nmap <C-q> :bd!<CR>
-imap <C-q> <C-c>:bd!<CR>
+nmap ; q:i
+nmap ` q:<CR>
+nnoremap <Up> :<Up>
+nnoremap <Down> :<Down>
+cmap <Right> <CR>
+nmap ' @@
+nmap " @q
+ 
+nmap <silent> <C-s> :w<CR>
+imap <silent> <C-s> <Esc>:w<CR>a
+nmap <silent> <C-q> :bd!<CR>
+imap <silent> <C-q> <C-c>:bd!<CR>
 
 nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
@@ -157,14 +170,14 @@ nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>fs :set foldmethod=syntax<CR>
 nmap <Leader>fi :set foldmethod=indent<CR>
 
-nmap <Leader>[ :NERDTreeToggle<CR>
+nmap <silent> <Leader>[ :NERDTreeToggle<CR>
 nmap <C-p><C-w> :execute "CtrlP ".$CODE_DIR <CR>
 
 nmap <silent> { :bprevious<CR>
 nmap <silent> } :bnext<CR>
 
-nmap <ESC> :q!<CR>
-nmap <F5> :source ~/.config/nvim/init.vim<CR>
+nmap <silent> <ESC> :q!<CR>
+nmap <silent> <F5> :source ~/.config/nvim/init.vim<CR>
 
 map <silent> ˙ :call WinMove('h')<cr>
 map <silent> ∆ :call WinMove('j')<cr>
