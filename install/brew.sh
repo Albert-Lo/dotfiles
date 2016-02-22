@@ -20,5 +20,6 @@ brew install tmux
 brew install zsh
 brew install nvm
 brew install htop
+brew install ngrok
 brew install neovim/neovim/neovim
 brew install reattach-to-user-namespace

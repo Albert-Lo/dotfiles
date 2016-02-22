@@ -22,9 +22,6 @@ alias v='nvim .'
 alias vc='nvim $CODE_DIR'
 alias vd='nvim $DOTFILES'
 
-
-
-
 alias nwjs='/Applications/nwjs.app/Contents/MacOS/nwjs'
 
 # Helpers
