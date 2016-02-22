@@ -153,7 +153,8 @@ nmap ; q:i
 nmap ` q:<CR>
 nnoremap <Up> :<Up>
 nnoremap <Down> :<Down>
-cmap <Right> <CR>
+vnoremap <Up> :<Up>
+vnoremap <Down> :<Down>
 nmap ' @@
 nmap " @q
  

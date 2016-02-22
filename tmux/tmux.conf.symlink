@@ -77,6 +77,9 @@ bind l select-pane -R
 bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
+#Kill window
+bind Q kill-window
+
 # Resize pane shortcuts
 bind -r H resize-pane -L 10
 bind -r J resize-pane -D 10
@@ -119,6 +122,8 @@ unbind p
 bind p paste-buffer
 bind -t vi-copy 'v' begin-selection
 bind -t vi-copy 'y' copy-selection
+
+bind H new-session -A -s htop
 
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"

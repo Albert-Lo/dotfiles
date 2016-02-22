@@ -56,3 +56,14 @@ bindkey -v
 BASE16_SHELL="$DOTFILES/config/base16-shell/$THEME.$BACKGROUND.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 source $BASE16_SHELL
+
+if [ "$TMUX" ]; then
+  SESSION_NAME=$(tmux display-message -p "#S")
+  if [ "$SESSION_NAME" = "htop" ]; then
+    htop
+  fi
+else
+  tmux new -d -s random 2> /dev/null;
+  tmux send-keys -t random 'tmux clock-mode' C-m;
+  tmux a -t random;
+fi
