@@ -44,3 +44,9 @@ alias fs="stat -f \"%z bytes\""
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 
 alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
+
+# Suffix alias
+
+alias -s coffee='coffee'
+alias -s git='git'
+alias -s js='node'
