@@ -74,7 +74,7 @@ set cmdheight=1 " command bar height
 " Searching
 set ignorecase " case insensitive searching
 set smartcase " case-sensitive if expresson contains a capital letter
-set hlsearch
+set hlsearch " Highlight search result
 set incsearch " set incremental search, like modern browsers
 set nolazyredraw " don't redraw while executing macros
 
@@ -145,12 +145,12 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-
+" Visual block indent/outdent
 xnoremap <  <gv
 xnoremap >  >gv
 
 nmap ; q:i
-nmap ` q:<CR>
+nmap ` q:<Up><CR>
 nnoremap <Up> :<Up>
 nnoremap <Down> :<Down>
 vnoremap <Up> :<Up>
