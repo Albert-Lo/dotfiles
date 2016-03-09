@@ -21,6 +21,10 @@ setopt APPEND_HISTORY
 
 setopt COMPLETE_ALIASES
 
+bindkey "^w" forward-word
+bindkey "^e" end-of-line
+bindkey "^b" backward-word
+
 # hh
 export HH_CONFIG=hicolor
 bindkey -s '^r' "hh\n"
@@ -32,6 +36,9 @@ export PATH="$ZSH/qfc/bin":"${PATH}"
 # zce
 source "$ZSH/zce/zce.zsh"
 bindkey "^j" zce
+
+# auto suggestion
+source "$ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # make terminal command navigation sane again
 # bindkey '^[^[[D' backward-word
