@@ -20,7 +20,13 @@ setopt APPEND_HISTORY
 
 setopt COMPLETE_ALIASES
 
-bindkey '^r' history-incremental-search-backward
+# hh
+export HH_CONFIG=hicolor
+bindkey -s '^r' "hh\n"
+
+# qfc
+export PATH="$ZSH/qfc/bin":"${PATH}"
+[[ -s "$ZSH/qfc/bin/qfc.sh" ]] && source "$ZSH/qfc/bin/qfc.sh"
 
 # make terminal command navigation sane again
 # bindkey '^[^[[D' backward-word

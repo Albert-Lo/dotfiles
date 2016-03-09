@@ -11,6 +11,7 @@ echo "Brewing stuff"
 brew install ack
 brew install the_silver_searcher
 brew install wget
+brew install hh
 
 # development tools
 brew install git
