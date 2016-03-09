@@ -29,6 +29,10 @@ bindkey -s '^r' "hh\n"
 export PATH="$ZSH/qfc/bin":"${PATH}"
 [[ -s "$ZSH/qfc/bin/qfc.sh" ]] && source "$ZSH/qfc/bin/qfc.sh"
 
+# zce
+source "$ZSH/zce/zce.zsh"
+bindkey "^j" zce
+
 # make terminal command navigation sane again
 # bindkey '^[^[[D' backward-word
 # bindkey '^[^[[C' forward-word

@@ -10,3 +10,6 @@
 [submodule "zsh/qfc"]
 	path = zsh/qfc
 	url = https://github.com/pindexis/qfc
+[submodule "zsh/zce"]
+	path = zsh/zce
+	url = git@github.com:hchbaw/zce.zsh.git
