@@ -4,6 +4,7 @@ setopt NO_LIST_BEEP
 setopt LOCAL_OPTIONS
 setopt LOCAL_TRAPS
 setopt PROMPT_SUBST
+setopt auto_cd
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
