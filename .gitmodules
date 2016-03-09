@@ -13,3 +13,6 @@
 [submodule "zsh/zce"]
 	path = zsh/zce
 	url = git@github.com:hchbaw/zce.zsh.git
+[submodule "zsh/zsh-autosuggestions"]
+	path = zsh/zsh-autosuggestions
+	url = git://github.com/zsh-users/zsh-autosuggestions
