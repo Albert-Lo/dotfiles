@@ -190,6 +190,7 @@ nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gd :Gdiff<CR>
+nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
 
 nmap <Leader>fs :set foldmethod=syntax<CR>
 nmap <Leader>fi :set foldmethod=indent<CR>
