@@ -26,7 +26,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-obsession'
+Plug 'sirver/ultisnips'
+Plug 'valloric/youcompleteme'
+Plug 'benekastah/neomake'
+"Plug 'ervandew/supertab'
 
+" Languages specific
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
@@ -54,6 +59,7 @@ autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+
 
 " code folding settings
 set foldnestmax=10 " deepest fold is 10 levels
@@ -110,10 +116,27 @@ set title
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+" You Complete me
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+
+"" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 " NERDTree setup
 
 "" close NERDTree after a file is opened
 let g:NERDTreeQuitOnOpen=1
+
+" Neomake
+autocmd! BufWritePost * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => StatusLine
@@ -184,6 +207,8 @@ map <silent> ˙ :call WinMove('h')<cr>
 map <silent> ∆ :call WinMove('j')<cr>
 map <silent> ˚ :call WinMove('k')<cr>
 map <silent> ¬ :call WinMove('l')<cr>
+
+nmap <silent> <Leader>n :ll<CR>
 
 map ÷ <Leader>ci
 

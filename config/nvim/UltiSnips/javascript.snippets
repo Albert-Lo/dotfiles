@@ -1,0 +1,35 @@
+snippet im
+import $1 from '$1';
+endsnippet
+
+snippet imr
+import React from 'react';
+endsnippet
+
+snippet exdr
+export default class $1 extends React.Component {
+  render() {
+    return (
+      $0
+    );
+  }
+}
+endsnippet
+
+snippet class 
+class $1 extends React.Component {
+  render() {
+	return (
+	  $0
+	);
+  }
+}
+endsnippet
+
+snippet iif
+{(() => {
+  if ($1) {
+    $0
+  }
+})()}
+endsnippet
