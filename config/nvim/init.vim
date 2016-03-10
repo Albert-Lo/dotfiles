@@ -178,7 +178,9 @@ nnoremap <Up> :<Up>
 nnoremap <Down> :<Down>
 vnoremap <Up> :<Up>
 vnoremap <Down> :<Down>
+" Repeat last macro
 nmap ' @@
+" Repeat q macro
 nmap " @q
  
 nmap <silent> <C-s> :w<CR>
@@ -186,6 +188,7 @@ imap <silent> <C-s> <Esc>:w<CR>a
 nmap <silent> <C-q> :bd!<CR>
 imap <silent> <C-q> <C-c>:bd!<CR>
 
+" clear higlighting and refresh
 nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
 nmap <Leader>gs :Gstatus<CR>
@@ -209,7 +212,7 @@ map <silent> ∆ :call WinMove('j')<cr>
 map <silent> ˚ :call WinMove('k')<cr>
 map <silent> ¬ :call WinMove('l')<cr>
 
-nmap <silent> <Leader>l :ll<CR>
+nmap <silent> <Leader>g :ll<CR>
 nmap <silent> <Leader>n :lnext<CR>
 
 map ÷ <Leader>ci
