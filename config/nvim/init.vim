@@ -208,12 +208,13 @@ map <silent> ∆ :call WinMove('j')<cr>
 map <silent> ˚ :call WinMove('k')<cr>
 map <silent> ¬ :call WinMove('l')<cr>
 
-nmap <silent> <Leader>n :ll<CR>
+nmap <silent> <Leader>l :ll<CR>
+nmap <silent> <Leader>n :lnext<CR>
 
 map ÷ <Leader>ci
 
-nnoremap <C-y> 2<C-y>
-nnoremap <C-e> 2<C-e>
+nnoremap <C-y> 3<C-y>
+nnoremap <C-e> 3<C-e>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
