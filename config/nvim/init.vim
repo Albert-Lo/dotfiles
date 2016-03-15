@@ -199,7 +199,7 @@ nmap <Leader>gj :cnext<CR>
 nmap <Leader>gk :cprevious<CR>
 nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
 nmap <Leader>gh :Git stash<CR>
-nmap <Leader>gp :Git stash pop<CR>
+nmap <Leader>ghp :Git stash pop<CR>
 
 nmap <Leader>fs :set foldmethod=syntax<CR>
 nmap <Leader>fi :set foldmethod=indent<CR>
@@ -218,7 +218,7 @@ map <silent> ∆ :call WinMove('j')<cr>
 map <silent> ˚ :call WinMove('k')<cr>
 map <silent> ¬ :call WinMove('l')<cr>
 
-nmap <silent> <Leader>g :ll<CR>
+nmap <silent> <Leader>/ :ll<CR>
 nmap <silent> <Leader>n :lnext<CR>
 
 map ÷ <Leader>ci
