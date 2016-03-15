@@ -31,11 +31,7 @@
       "templateStrings": true,
       "unicodeCodePointEscapes": true,
       "globalReturn": true,
-      "jsx": true,
-      "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
-      }
+      "jsx": true
     }
   },
   "rules": {
@@ -134,6 +130,9 @@
     "react/jsx-uses-vars": 2,
     "react/no-did-mount-set-state": 2,
     "react/no-did-update-set-state": 2,
+    "react/no-deprecated": 2,
+    "react/no-direct-mutation-state": 2,
+    "react/jsx-space-before-closing": 1,
     "react/no-multi-comp": 0,
     "react/no-unknown-property": 2,
     "react/react-in-jsx-scope": 2,
