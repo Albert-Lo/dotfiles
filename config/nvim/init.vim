@@ -29,6 +29,8 @@ Plug 'tpope/vim-obsession'
 Plug 'sirver/ultisnips'
 Plug 'valloric/youcompleteme'
 Plug 'benekastah/neomake'
+Plug 'tpope/vim-dispatch'
+
 "Plug 'ervandew/supertab'
 
 " Languages specific
@@ -178,19 +180,24 @@ nnoremap <Up> :<Up>
 nnoremap <Down> :<Down>
 vnoremap <Up> :<Up>
 vnoremap <Down> :<Down>
+
 " Repeat last macro
 nmap ' @@
 " Repeat q macro
 nmap " @q
  
+" Saving
 nmap <silent> <C-s> :w<CR>
 imap <silent> <C-s> <Esc>:w<CR>a
+
+" Close buffer
 nmap <silent> <C-q> :bd!<CR>
 imap <silent> <C-q> <C-c>:bd!<CR>
 
 " clear higlighting and refresh
 nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
+" git 
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gb :Gblame<CR>
@@ -207,12 +214,16 @@ nmap <Leader>fi :set foldmethod=indent<CR>
 nmap <silent> <Leader>[ :NERDTreeToggle<CR>
 nmap <C-p><C-w> :execute "CtrlP ".$CODE_DIR <CR>
 
+" Buffer navigation
 nmap <silent> { :bprevious<CR>
 nmap <silent> } :bnext<CR>
 
+" Quit
 nmap <silent> <ESC> :q!<CR>
+" Resource init.vim
 nmap <silent> <F5> :source ~/.config/nvim/init.vim<CR>
 
+" Split navigation
 map <silent> ˙ :call WinMove('h')<cr>
 map <silent> ∆ :call WinMove('j')<cr>
 map <silent> ˚ :call WinMove('k')<cr>
