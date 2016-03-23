@@ -26,8 +26,8 @@ bindkey "^e" end-of-line
 bindkey "^b" backward-word
 
 # hh
-export HH_CONFIG=hicolor
-bindkey -s '^r' "hh\n"
+#export HH_CONFIG=hicolor
+#bindkey -s '^r' "hh\n"
 
 # qfc
 export PATH="$ZSH/qfc/bin":"${PATH}"
