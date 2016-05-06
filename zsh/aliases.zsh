@@ -15,7 +15,7 @@ alias c='cd $CODE_DIR'
 alias d='cd $DOTFILES'
 alias l.='ls -d .*' # List dotfiles
 alias df='df -h' # disk free, in Gigabytes, not bytes
-alias du='du -h -c' # calculate disk usage for a folder
+alias du='du -d 1 | sort -n -r' # calculate disk usage for a folder
 
 # Vim shortcut
 alias v='nvim .'
