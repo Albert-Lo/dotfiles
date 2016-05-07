@@ -48,7 +48,6 @@ Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'kchmck/vim-coffee-script'
 
-
 call plug#end()
 
 filetype plugin indent on
@@ -218,10 +217,9 @@ nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gl :silent Glog<CR>
 nmap <Leader>gj :cnext<CR>
 nmap <Leader>gk :cprevious<CR>
-nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
 nmap <Leader>gv :Silent Git stash<CR>
 nmap <Leader>g^ :Silent Git stash pop<CR>
-nmap <Leader>gP :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
+nmap <Leader>gp :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
 
 " Folding method
 nmap <Leader>fs :set foldmethod=syntax<CR>
