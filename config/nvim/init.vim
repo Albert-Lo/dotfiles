@@ -215,8 +215,8 @@ nmap <Leader>gl :silent Glog<CR>
 nmap <Leader>gj :cnext<CR>
 nmap <Leader>gk :cprevious<CR>
 nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
-nmap <Leader>gh :Git stash<CR>
-nmap <Leader>ghp :Git stash pop<CR>
+nmap <Leader>gv :Git stash<CR>
+nmap <Leader>g^ :Git stash pop<CR>
 
 " Folding method
 nmap <Leader>fs :set foldmethod=syntax<CR>
@@ -240,7 +240,7 @@ map <silent> ∆ :call WinMove('j')<cr>
 map <silent> ˚ :call WinMove('k')<cr>
 map <silent> ¬ :call WinMove('l')<cr>
 
-" Git log navigation
+" Lint issue navigation
 nmap <silent> <Leader>/ :ll<CR>
 nmap <silent> <Leader>n :lnext<CR>
 
