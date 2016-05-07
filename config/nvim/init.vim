@@ -175,8 +175,12 @@ endif
 xnoremap <  <gv
 xnoremap >  >gv
 
+" open up command history and toggle insert mode
 nmap ; q:i
+" Repeat last command
 nmap ` q:<Up><CR>
+
+" open up command history
 nnoremap <Up> :<Up>
 nnoremap <Down> :<Down>
 vnoremap <Up> :<Up>
@@ -214,6 +218,7 @@ nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
 nmap <Leader>gh :Git stash<CR>
 nmap <Leader>ghp :Git stash pop<CR>
 
+" Folding method
 nmap <Leader>fs :set foldmethod=syntax<CR>
 nmap <Leader>fi :set foldmethod=indent<CR>
 
@@ -226,8 +231,8 @@ nmap <silent> } :bnext<CR>
 
 " Quit
 nmap <silent> <ESC> :q!<CR>
-" Resource init.vim
-nmap <silent> <F5> :source ~/.config/nvim/init.vim<CR>
+" Resource init.vim and refresh file
+nmap <silent> <F5> :source ~/.config/nvim/init.vim<CR>:edit<CR>
 
 " Split navigation
 map <silent> ˙ :call WinMove('h')<cr>
@@ -235,11 +240,14 @@ map <silent> ∆ :call WinMove('j')<cr>
 map <silent> ˚ :call WinMove('k')<cr>
 map <silent> ¬ :call WinMove('l')<cr>
 
+" Git log navigation
 nmap <silent> <Leader>/ :ll<CR>
 nmap <silent> <Leader>n :lnext<CR>
 
+" Comment toggle
 map ÷ <Leader>ci
 
+" Scroll faster
 nnoremap <C-y> 3<C-y>
 nnoremap <C-e> 3<C-e>
 
