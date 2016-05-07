@@ -207,6 +207,10 @@ imap <silent> <C-q> <C-c>:bd!<CR>
 " clear higlighting and refresh
 nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
+command! -nargs=1 Silent
+\ | execute ':silent !'.<q-args>
+\ | execute ':redraw!'
+
 " git 
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gd :Gdiff<CR>
@@ -215,8 +219,9 @@ nmap <Leader>gl :silent Glog<CR>
 nmap <Leader>gj :cnext<CR>
 nmap <Leader>gk :cprevious<CR>
 nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
-nmap <Leader>gv :Git stash<CR>
-nmap <Leader>g^ :Git stash pop<CR>
+nmap <Leader>gv :Silent Git stash<CR>
+nmap <Leader>g^ :Silent Git stash pop<CR>
+nmap <Leader>gP :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
 
 " Folding method
 nmap <Leader>fs :set foldmethod=syntax<CR>
