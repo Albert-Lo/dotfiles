@@ -177,7 +177,7 @@ xnoremap >  >gv
 " open up command history and toggle insert mode
 nmap ; q:i
 " Repeat last command
-nmap ` q:<Up><CR>
+nmap ` :<Up><CR>
 
 " open up command history
 nnoremap <Up> :<Up>
@@ -187,7 +187,7 @@ vnoremap <Down> :<Down>
 
 " Repeat last macro
 nmap ' @@
-" Repeat q macro
+" Exec q macro
 nmap æ @q
 
 " Delete without copying
