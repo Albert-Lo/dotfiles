@@ -185,7 +185,12 @@ vnoremap <Down> :<Down>
 " Repeat last macro
 nmap ' @@
 " Repeat q macro
-nmap " @q
+nmap æ @q
+
+" Delete without copying
+nmap <C-d> "_d
+nmap <C-D> "_dd
+vmap <C-d> "_d
  
 " Saving
 nmap <silent> <C-s> :w<CR>
