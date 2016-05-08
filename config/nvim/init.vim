@@ -14,7 +14,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'gregsexton/gitv'
@@ -29,16 +28,12 @@ Plug 'tpope/vim-obsession'
 Plug 'sirver/ultisnips'
 Plug 'valloric/youcompleteme'
 Plug 'benekastah/neomake'
-"Plug 'tpope/vim-dispatch'
-
-"Plug 'ervandew/supertab'
 
 " Languages specific
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
 Plug 'moll/vim-node'
-"Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
@@ -47,6 +42,7 @@ Plug 'groenewege/vim-less'
 Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'kchmck/vim-coffee-script'
+Plug 'elmcast/elm-vim'
 
 call plug#end()
 
@@ -61,6 +57,9 @@ autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+
+" Disable default elm-vim mapping
+let g:elm_setup_keybindings = 0
 
 
 " code folding settings
@@ -120,6 +119,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " You Complete me
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_semantic_triggers = {'elm' : ['.']}
 
 "" make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -219,7 +219,8 @@ nmap <Leader>gj :cnext<CR>
 nmap <Leader>gk :cprevious<CR>
 nmap <Leader>gv :Silent Git stash<CR>
 nmap <Leader>g^ :Silent Git stash pop<CR>
-nmap <Leader>gp :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
+nmap <Leader>gP :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
+nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
 
 " Folding method
 nmap <Leader>fs :set foldmethod=syntax<CR>
