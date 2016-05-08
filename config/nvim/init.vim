@@ -28,6 +28,7 @@ Plug 'tpope/vim-obsession'
 Plug 'sirver/ultisnips'
 Plug 'valloric/youcompleteme'
 Plug 'benekastah/neomake'
+"Plug 'terryma/vim-expand-region'
 
 " Languages specific
 Plug 'mattn/emmet-vim'
@@ -221,6 +222,12 @@ nmap <Leader>gv :Silent Git stash<CR>
 nmap <Leader>g^ :Silent Git stash pop<CR>
 nmap <Leader>gP :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
 nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
+
+" EasyMotion
+map ? <Plug>(easymotion-f)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>w <Plug>(easymotion-w)
 
 " Folding method
 nmap <Leader>fs :set foldmethod=syntax<CR>
