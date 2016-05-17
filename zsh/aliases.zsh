@@ -45,6 +45,9 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 
 alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
 
+# Calendar
+alias cal='cal | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"'
+
 # Suffix alias
 
 alias -s coffee='coffee'

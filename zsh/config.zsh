@@ -23,7 +23,10 @@ setopt COMPLETE_ALIASES
 
 bindkey "^w" forward-word
 bindkey "^e" end-of-line
+bindkey "^l" beginning-of-line
 bindkey "^b" backward-word
+bindkey "^j" down-line-or-history
+bindkey "^k" up-line-or-history
 
 # hh
 #export HH_CONFIG=hicolor
@@ -34,8 +37,8 @@ export PATH="$ZSH/qfc/bin":"${PATH}"
 [[ -s "$ZSH/qfc/bin/qfc.sh" ]] && source "$ZSH/qfc/bin/qfc.sh"
 
 # zce
-source "$ZSH/zce/zce.zsh"
-bindkey "^j" zce
+#source "$ZSH/zce/zce.zsh"
+#bindkey "^j" zce
 
 # auto suggestion
 source "$ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh"
