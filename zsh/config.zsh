@@ -21,12 +21,15 @@ setopt APPEND_HISTORY
 
 setopt COMPLETE_ALIASES
 
+bindkey "^b" backward-word
 bindkey "^w" forward-word
 bindkey "^e" end-of-line
-bindkey "^l" beginning-of-line
-bindkey "^b" backward-word
+bindkey "^y" beginning-of-line
+
+bindkey "^h" backward-char
 bindkey "^j" down-line-or-history
 bindkey "^k" up-line-or-history
+bindkey "^l" forward-char
 
 # hh
 #export HH_CONFIG=hicolor
