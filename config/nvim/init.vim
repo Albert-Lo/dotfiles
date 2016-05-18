@@ -28,6 +28,7 @@ Plug 'tpope/vim-obsession'
 Plug 'sirver/ultisnips'
 Plug 'valloric/youcompleteme'
 Plug 'benekastah/neomake'
+Plug 'terryma/vim-multiple-cursors'
 "Plug 'terryma/vim-expand-region'
 
 " Languages specific
@@ -140,6 +141,9 @@ let g:NERDTreeQuitOnOpen=1
 " Neomake
 autocmd! BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+
+" Multi-cursor
+"let g:multi_cursor_quit_key='<Esc>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => StatusLine
