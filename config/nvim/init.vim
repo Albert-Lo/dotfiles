@@ -63,7 +63,6 @@ au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 " Disable default elm-vim mapping
 let g:elm_setup_keybindings = 0
 
-
 " code folding settings
 set foldnestmax=10 " deepest fold is 10 levels
 set nofoldenable " don't fold by default
@@ -211,6 +210,7 @@ imap <silent> <C-q> <C-c>:bd!<CR>
 " clear higlighting and refresh
 nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
+" Super silent
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
@@ -224,18 +224,21 @@ nmap <Leader>gj :cnext<CR>
 nmap <Leader>gk :cprevious<CR>
 nmap <Leader>gv :Silent Git stash<CR>
 nmap <Leader>g^ :Silent Git stash pop<CR>
+" Dirty sync
 nmap <Leader>gP :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
+" Clean sync
 nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
 
 " EasyMotion
-map ? <Plug>(easymotion-f)
+map ? <Plug>(easymotion-s2)
+map <Leader>f <Plug>(easymotion-f)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
 
 " Folding method
-nmap <Leader>fs :set foldmethod=syntax<CR>
-nmap <Leader>fi :set foldmethod=indent<CR>
+nmap <Leader>zs :set foldmethod=syntax<CR>
+nmap <Leader>zi :set foldmethod=indent<CR>
 
 nmap <silent> <Leader>[ :NERDTreeToggle<CR>
 nmap <C-p><C-w> :execute "CtrlP ".$CODE_DIR <CR>
