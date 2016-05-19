@@ -263,8 +263,8 @@ nmap <silent> <Leader>n :lnext<CR>
 map ÷ <Leader>ci
 
 " Scroll faster
-nnoremap <C-y> 3<C-y>
-nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 6<C-y>
+nnoremap <C-e> 6<C-e>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
