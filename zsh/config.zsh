@@ -40,8 +40,8 @@ export PATH="$ZSH/qfc/bin":"${PATH}"
 [[ -s "$ZSH/qfc/bin/qfc.sh" ]] && source "$ZSH/qfc/bin/qfc.sh"
 
 # zce
-#source "$ZSH/zce/zce.zsh"
-#bindkey "^j" zce
+source "$ZSH/zce/zce.zsh"
+bindkey "^f" zce
 
 # auto suggestion
 source "$ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh"

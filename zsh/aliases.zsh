@@ -29,7 +29,7 @@ alias grep='grep --color=auto'
 
 # Network
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com; ipconfig getifaddr en0"
+alias ip='echo "Public: $(dig +short myip.opendns.com @resolver1.opendns.com)\nLocal: $(ipconfig getifaddr en0)"'
 # Active ports
 alias ports="sudo lsof -i -P | grep -i 'listen'"
 
@@ -38,7 +38,6 @@ alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 
 # File size
 alias fs="stat -f \"%z bytes\""
-
 
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
@@ -49,7 +48,6 @@ alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chro
 alias cal='cal | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"'
 
 # Suffix alias
-
 alias -s coffee='coffee'
 alias -s git='git'
 alias -s js='node'
