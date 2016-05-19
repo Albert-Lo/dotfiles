@@ -5,7 +5,7 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'chriskempson/base16-vim'
 
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mileszs/ack.vim'
@@ -166,8 +166,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:vim_json_syntax_conceal = 0
 
 " Control P
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
 
 " Ag searcher using Ack
 if executable('ag')
@@ -198,6 +198,9 @@ nmap æ @q
 nmap <C-d> "_d
 nmap <C-D> "_dd
 vmap <C-d> "_d
+
+" Paste without copying in visual mode
+vmap p "_dP
  
 " Saving
 nmap <silent> <C-s> :w<CR>
