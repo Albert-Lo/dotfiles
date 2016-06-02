@@ -45,6 +45,7 @@ Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elmcast/elm-vim'
+Plug 'mtscout6/vim-cjsx'
 
 call plug#end()
 
@@ -227,6 +228,7 @@ nmap <Leader>gj :cnext<CR>
 nmap <Leader>gk :cprevious<CR>
 nmap <Leader>gv :Silent Git stash<CR>
 nmap <Leader>g^ :Silent Git stash pop<CR>
+nmap <Leader>gc :Gcommit<CR>
 " Dirty sync
 nmap <Leader>gP :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
 " Clean sync
