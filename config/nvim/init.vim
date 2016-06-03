@@ -78,6 +78,7 @@ endif
 " => User Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set scrolloff=7 " lines of text around cursor
+set sidescrolloff=10 " number of char around cursor
 set cmdheight=1 " command bar height
 
 " Searching
@@ -221,7 +222,7 @@ command! -nargs=1 Silent
 
 " git 
 nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gd :Gdiff<CR>
+nmap <Leader>gd :Gdiff HEAD<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gl :silent Glog<CR>
 nmap <Leader>gj :cnext<CR>
@@ -232,7 +233,7 @@ nmap <Leader>gc :Gcommit<CR>
 " Dirty sync
 nmap <Leader>gP :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
 " Clean sync
-nmap <Leader>gp :Gpull --rebase<CR>:Gpush<CR>
+nmap <Leader>gp :Gpull --rebase --autostash<CR>:Gpush<CR>
 
 " EasyMotion
 map ? <Plug>(easymotion-s2)

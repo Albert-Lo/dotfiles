@@ -1,10 +1,9 @@
 # git aliases
 alias ga='git add'
 alias gb='git branch'
-alias gl='git pull'
+alias gl='git pull --rebase --autostash'
 alias gp='git push'
-alias gd='git diff'
-alias gdc='git diff --cached'
+alias gd='git diff HEAD'
 alias gs='git status'
 alias gss='git stash save'
 alias gsp='git stash pop'
