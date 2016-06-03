@@ -222,7 +222,8 @@ command! -nargs=1 Silent
 
 " git 
 nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gd :Gdiff HEAD<CR>
+nmap <Leader>gd :Gdiff<CR>
+nmap <Leader>gh :Gdiff HEAD<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gl :silent Glog<CR>
 nmap <Leader>gj :cnext<CR>
