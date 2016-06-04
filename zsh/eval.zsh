@@ -1,4 +1,0 @@
-function =
-{
-  echo "$@" | bc -l
-}
