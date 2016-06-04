@@ -231,10 +231,8 @@ nmap <Leader>gk :cprevious<CR>
 nmap <Leader>gv :Silent Git stash<CR>
 nmap <Leader>g^ :Silent Git stash pop<CR>
 nmap <Leader>gc :Gcommit<CR>
-" Dirty sync
-nmap <Leader>gP :Silent Git stash<CR>:Gpull --rebase<CR>:Gpush<CR>:Silent Git stash pop<CR>
-" Clean sync
-nmap <Leader>gp :Gpull --rebase --autostash<CR>:Gpush<CR>
+" Sync
+nmap <Leader>gp :Gfetch<CR>:Silent Git rebase --autostash<CR>:Gpush<CR>
 
 " EasyMotion
 map ? <Plug>(easymotion-s2)
