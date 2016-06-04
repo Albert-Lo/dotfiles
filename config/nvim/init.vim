@@ -191,10 +191,10 @@ nnoremap <Down> :<Down>
 vnoremap <Up> :<Up>
 vnoremap <Down> :<Down>
 
-" Repeat last macro
-nmap ' @@
+" Repeat last macro(option + ')
+nmap æ @@
 " Exec q macro
-nmap æ @q
+nmap ' @q
 
 " Delete without copying
 nmap <C-d> "_d
