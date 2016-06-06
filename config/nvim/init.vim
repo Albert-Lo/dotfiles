@@ -241,6 +241,11 @@ map <Leader>f <Plug>(easymotion-f)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 " Folding method
 nmap <Leader>zs :set foldmethod=syntax<CR>
@@ -310,3 +315,10 @@ function! Qfa()
 endfunction
 
 command! Qfa call Qfa()
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Auto correct spelling
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Abolish fucntion function
+Abolish l{ne,en}g{ht,th} l{en}g{th}
