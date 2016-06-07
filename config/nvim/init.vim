@@ -44,7 +44,7 @@ Plug 'moll/vim-node'
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim'
+"Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'wavded/vim-stylus'
 
@@ -227,8 +227,10 @@ nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gh :Gdiff HEAD<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gl :silent Glog<CR>
-nmap <Leader>gj :cnext<CR>
-nmap <Leader>gk :cprevious<CR>
+"nmap <Leader>gj :cnext<CR>
+"nmap <Leader>gk :cprevious<CR>
+nmap <C-J> :cnext<CR>
+nmap <C-K> :cprevious<CR>
 nmap <Leader>gv :Silent Git stash<CR>
 nmap <Leader>g^ :Silent Git stash pop<CR>
 nmap <Leader>gc :Gcommit<CR>
@@ -237,7 +239,7 @@ nmap <Leader>gp :Gfetch<CR>:Silent Git rebase --autostash<CR>:Gpush<CR>
 
 " EasyMotion
 map ? <Plug>(easymotion-s2)
-map <Leader>f <Plug>(easymotion-f)
+map f <Plug>(easymotion-f)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
@@ -317,8 +319,10 @@ endfunction
 command! Qfa call Qfa()
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Auto correct spelling
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Abolish fucntion function
-Abolish l{ne,en}g{ht,th} l{en}g{th}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ "=> Auto correct spelling
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Abolish fucntion function
+"Abolish l{ne,en}g{ht,th} l{en}g{th}
+"Abolish proudct product
+"Abolish reatil retail
