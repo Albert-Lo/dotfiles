@@ -70,7 +70,7 @@ set foldnestmax=10 " deepest fold is 10 levels
 set nofoldenable " don't fold by default
 set foldlevel=1
 
-if has('mouse')
+if has('keyboard')
     set mouse=a
     " set ttymouse=xterm2
 endif
@@ -183,8 +183,6 @@ xnoremap >  >gv
 
 " open up command history and toggle insert mode
 nmap ; q:i
-" Repeat last command
-nmap ` :<Up><CR>
 
 " open up command history
 nnoremap <Up> :<Up>
@@ -239,7 +237,8 @@ nmap <Leader>gp :Gfetch<CR>:Silent Git rebase --autostash<CR>:Gpush<CR>
 
 " EasyMotion
 map ? <Plug>(easymotion-s2)
-map f <Plug>(easymotion-f)
+map f <Plug>(easymotion-fl)
+map F <Plug>(easymotion-Fl)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
@@ -281,6 +280,15 @@ map ÷ <Leader>ci
 " Scroll faster
 nnoremap <C-y> 6<C-y>
 nnoremap <C-e> 6<C-e>
+
+" Bracket auto new line
+inoremap {<CR> {<CR>}<Esc>O
+inoremap [<CR> [<CR>]<Esc>O
+inoremap (<CR> (<CR>)<Esc>O
+
+" Number
+nnoremap = <C-A>
+nnoremap - <C-x>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
