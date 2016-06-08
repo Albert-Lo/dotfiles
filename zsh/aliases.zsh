@@ -19,8 +19,8 @@ alias du='du -h -c | sort -h' # calculate disk usage for a folder
 
 # Vim shortcut
 alias v='nvim .'
-alias vc='nvim $CODE_DIR'
-alias vd='nvim $DOTFILES'
+alias vc='cd $CODE_DIR; nvim .'
+alias vd='cd $DOTFILES; nvim .'
 
 alias nwjs='/Applications/nwjs.app/Contents/MacOS/nwjs'
 
