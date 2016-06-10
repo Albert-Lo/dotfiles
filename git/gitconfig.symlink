@@ -1,0 +1,16 @@
+[user]
+	name = Albert
+	email = sero.albert@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+[push]
+	default = upstream
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
