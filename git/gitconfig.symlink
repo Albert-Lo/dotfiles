@@ -7,7 +7,7 @@
 	default = upstream
 [alias]
 	co = checkout
-	ci = commit
+	cm = commit
 	st = status
 	br = branch
 [pull]
