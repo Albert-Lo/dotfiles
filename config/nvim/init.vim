@@ -7,29 +7,29 @@ Plug 'chriskempson/base16-vim'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'terryma/vim-expand-region'
 "Plug 'terryma/vim-multiple-cursors'
-Plug 'Raimondi/delimitMate'
-Plug 'Shougo/unite.vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
-Plug 'benekastah/neomake'
+" Plug 'Shougo/unite.vim'
+Plug 'Raimondi/delimitMate' " Bracket completion
+Plug 'Xuyuanp/nerdtree-git-plugin' " Show git file status in nerdtree
+Plug 'Yggdroot/indentLine' " Indent guide
+Plug 'airblade/vim-gitgutter' " +/- git gutter on the left
+Plug 'benekastah/neomake' " Async runner
 Plug 'easymotion/vim-easymotion'
-Plug 'gioele/vim-autoswap'
-Plug 'godlygeek/tabular'
-Plug 'gregsexton/gitv'
-Plug 'mileszs/ack.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree'
-Plug 'sirver/ultisnips'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'valloric/youcompleteme'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'gioele/vim-autoswap' " Painless swap file management
+Plug 'godlygeek/tabular' " Align text
+Plug 'gregsexton/gitv' " Visual git tree
+Plug 'mileszs/ack.vim' " Searching
+Plug 'ryanoasis/vim-devicons' " Icons
+Plug 'scrooloose/nerdtree' " File drawer
+Plug 'sirver/ultisnips' " Snippet
+Plug 'tpope/vim-abolish' " Smart text replacement and spelling correction
+Plug 'tpope/vim-commentary' " Comment toggle
+Plug 'tpope/vim-fugitive' " git plugin
+Plug 'tpope/vim-obsession' " Save vim session
+Plug 'tpope/vim-repeat' " Use . to repeat more action
+Plug 'tpope/vim-surround' " Surround text with stuff
+Plug 'valloric/youcompleteme' " Completion suggestion
+Plug 'vim-airline/vim-airline' " Status line
+Plug 'vim-airline/vim-airline-themes' " Status line theme
 
 " Languages specific
 Plug 'ap/vim-css-color'
