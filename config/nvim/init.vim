@@ -6,6 +6,7 @@ Plug 'chriskempson/base16-vim'
 
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'terryma/vim-expand-region'
+"Plug 'terryma/vim-multiple-cursors'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/unite.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -18,10 +19,8 @@ Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv'
 Plug 'mileszs/ack.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sirver/ultisnips'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -69,6 +68,11 @@ let g:elm_setup_keybindings = 0
 set foldnestmax=10 " deepest fold is 10 levels
 set nofoldenable " don't fold by default
 set foldlevel=1
+
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vimundo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
 
 if has('keyboard')
     set mouse=a
@@ -225,10 +229,9 @@ nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gh :Gdiff HEAD<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gl :silent Glog<CR>
+nmap <Leader>gv :Gitv<CR>
 nmap <C-J> :cnext<CR>
 nmap <C-K> :cprevious<CR>
-nmap <Leader>gv :Silent Git stash<CR>
-nmap <Leader>g^ :Silent Git stash pop<CR>
 nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>ga :Gcommit --amend<CR>
 " Sync
@@ -274,7 +277,8 @@ nmap <silent> <Leader>/ :ll<CR>
 nmap <silent> <Leader>n :lnext<CR>
 
 " Comment toggle, option + /
-map ÷ <Leader>ci
+"map ÷ <Leader>ci
+map ÷ gcc
 
 " Scroll faster
 nnoremap <C-y> 6<C-y>
