@@ -225,15 +225,14 @@ nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gh :Gdiff HEAD<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gl :silent Glog<CR>
-"nmap <Leader>gj :cnext<CR>
-"nmap <Leader>gk :cprevious<CR>
 nmap <C-J> :cnext<CR>
 nmap <C-K> :cprevious<CR>
 nmap <Leader>gv :Silent Git stash<CR>
 nmap <Leader>g^ :Silent Git stash pop<CR>
 nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>ga :Gcommit --amend<CR>
 " Sync
-nmap <Leader>gp :Gfetch<CR>:Silent Git rebase --autostash<CR>:Gpush<CR>
+nmap <Leader>gp :Gpull<CR>:Gpush<CR>
 
 " EasyMotion
 map ? <Plug>(easymotion-s2)
@@ -274,7 +273,7 @@ map <silent> ¬ :call WinMove('l')<cr>
 nmap <silent> <Leader>/ :ll<CR>
 nmap <silent> <Leader>n :lnext<CR>
 
-" Comment toggle
+" Comment toggle, option + /
 map ÷ <Leader>ci
 
 " Scroll faster
@@ -325,12 +324,3 @@ function! Qfa()
 endfunction
 
 command! Qfa call Qfa()
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- "=> Auto correct spelling
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Abolish fucntion function
-"Abolish l{ne,en}g{ht,th} l{en}g{th}
-"Abolish proudct product
-"Abolish reatil retail
