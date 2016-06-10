@@ -1,6 +1,7 @@
 # reload zsh config
 alias r!='source ~/.zshrc'
 
+# Use neovim as default vim
 alias vim="nvim"
 
 # Filesystem aliases
@@ -51,3 +52,6 @@ alias cal='cal | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"'
 alias -s coffee='coffee'
 alias -s git='git'
 alias -s js='node'
+
+# Clean tmp files
+alias rmtmp="sudo rm -rf ~/.vim-tmp ~/.tmp ~/tmp /var/tmp /tmp"
