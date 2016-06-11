@@ -238,7 +238,7 @@ nmap <Leader>ga :Gcommit --amend<CR>
 nmap <Leader>gp :Gpull<CR>:Gpush<CR>
 
 " EasyMotion
-map ? <Plug>(easymotion-s2)
+map s <Plug>(easymotion-s2)
 map f <Plug>(easymotion-fl)
 map F <Plug>(easymotion-Fl)
 map <Leader>j <Plug>(easymotion-j)
