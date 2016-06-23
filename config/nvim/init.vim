@@ -277,7 +277,6 @@ nmap <silent> <Leader>/ :ll<CR>
 nmap <silent> <Leader>n :lnext<CR>
 
 " Comment toggle, option + /
-"map ÷ <Leader>ci
 map ÷ gcc
 
 " Scroll faster

@@ -55,3 +55,5 @@ alias -s js='node'
 
 # Clean tmp files
 alias rmtmp="sudo rm -rf ~/.vim-tmp ~/.tmp ~/tmp /var/tmp /tmp"
+
+alias bump="git pull && npm version patch && git push && npm publish"
