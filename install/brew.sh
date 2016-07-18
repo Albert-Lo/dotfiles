@@ -12,6 +12,7 @@ brew install ack
 brew install the_silver_searcher
 brew install wget
 brew install hh
+brew install wifi-password
 
 # development tools
 brew install git

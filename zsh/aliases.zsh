@@ -33,6 +33,8 @@ alias grep='grep --color=auto'
 alias ip='echo "Public: $(dig +short myip.opendns.com @resolver1.opendns.com)\nLocal: $(ipconfig getifaddr en0)"'
 # Active ports
 alias ports="sudo lsof -i -P | grep -i 'listen'"
+# Wifi password
+alias wp="wifi-password"
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
