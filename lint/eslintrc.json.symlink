@@ -5,7 +5,10 @@
     "es6": true,
     "jquery": true
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react",
+    "transform-class-properties"
+  ],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
