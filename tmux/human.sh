@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tm_icon="♟"
+tm_icon="  "
 tm_color_background=colour234
 tm_color_active=colour118
 tm_color_inactive=colour241
@@ -47,10 +47,11 @@ set-option -g display-panes-colour $tm_color_inactive
 
 tm_spotify="#[fg=$tm_color_music]#(osascript ~/dotfiles/applescripts/tunes.scpt)"
 tm_battery=" #(~/dotfiles/bin/battery_indicator.sh)"
+tm_wifi="#[fg=$tm_color_feature] #(~/dotfiles/bin/wifi.sh)"
 
-tm_date="#[fg=colour255] %R %d %b"
+tm_date="#[fg=colour255] %R %a %d %b"
 tm_host="#[fg=$tm_color_feature]$tm_right_separator_black#[bg=$tm_color_feature,fg=$tm_color_background,bold] #h "
 tm_session_name="#[bg=$tm_color_feature,fg=$tm_color_background,bold]$tm_icon #S #[fg=$tm_color_feature,bg=default,nobold]$tm_left_separator_black"
 
 set -g status-left $tm_session_name' '
-set -g status-right $tm_spotify' '$tm_battery' '$tm_date' '$tm_host
+set -g status-right $tm_spotify' '$tm_wifi' '$tm_battery' '$tm_date' '$tm_host

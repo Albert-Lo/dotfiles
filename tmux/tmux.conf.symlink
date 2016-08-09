@@ -38,11 +38,6 @@ set -sg escape-time 0
 unbind =
 bind = select-layout tiled
 
-# cycle through panes
-# unbind C-a
-# unbind o # this is the default key for cycling panes
-# bind ^A select-pane -t:.+
-
 # make window/pane index start with 1
 set -g base-index 1
 setw -g pane-base-index 1
@@ -127,7 +122,6 @@ bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-
 ### Color & Style Settings ###
 ##############################
 
-source ~/dotfiles/tmux/theme.sh
 source ~/dotfiles/tmux/human.sh
 
 run '~/dotfiles/tmux/plugins/tpm/tpm'
