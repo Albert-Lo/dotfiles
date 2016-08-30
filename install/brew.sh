@@ -20,6 +20,8 @@ brew install nginx
 brew install macvim --override-system-vim
 brew install tmux
 brew install zsh
+brew install zplug
+brew install coreutils
 brew install nvm
 brew install htop
 brew install ngrok

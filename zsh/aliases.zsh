@@ -15,6 +15,7 @@ alias rf="rm -rf"
 alias c='cd $CODE_DIR'
 alias d='cd $DOTFILES'
 alias l.='ls -d .*' # List dotfiles
+alias l='k -h' # List dotfiles
 alias df='df -h' # disk free, in Gigabytes, not bytes
 alias du='du -h -c | sort -h' # calculate disk usage for a folder
 

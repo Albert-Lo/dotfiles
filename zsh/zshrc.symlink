@@ -1,5 +1,12 @@
 export DOTFILES=$HOME/dotfiles
+export ZPLUG=$HOME/.zplug/repos
 export ZSH=$DOTFILES/zsh
+
+source "$( brew --prefix )"/opt/zplug/init.zsh
+zplug "hlissner/zsh-autopair", nice:10
+zplug "supercrabtree/k"
+zplug load
+
 
 # display how long all tasks over 10 seconds take
 export REPORTTIME=10
@@ -69,3 +76,4 @@ else
   tmux send-keys -t random 'tmux clock-mode' C-m;
   tmux a -t random;
 fi
+

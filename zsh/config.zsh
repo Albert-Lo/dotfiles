@@ -5,6 +5,7 @@ setopt LOCAL_OPTIONS
 setopt LOCAL_TRAPS
 setopt PROMPT_SUBST
 setopt auto_cd
+unsetopt monitor
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -43,7 +44,7 @@ export PATH="$ZSH/qfc/bin":"${PATH}"
 
 # zce
 source "$ZSH/zce/zce.zsh"
-bindkey "^f" zce
+bindkey "^j" zce
 
 # auto suggestion
 source "$ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh"
