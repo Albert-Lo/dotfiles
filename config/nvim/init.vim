@@ -145,6 +145,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:NERDTreeQuitOnOpen=1
 
 " Neomake
+let g:neomake_logfile=$HOME.'/neomake.log'
 autocmd! BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
 
@@ -225,8 +226,8 @@ command! -nargs=1 Silent
 
 " git 
 nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gd :Gdiff<CR>
-nmap <Leader>gh :Gdiff HEAD<CR>
+nmap <Leader>gd :Gvdiff<CR>
+nmap <Leader>gh :Gvdiff HEAD<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gl :silent Glog<CR>
 nmap <Leader>gv :Gitv<CR>
@@ -236,6 +237,8 @@ nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>ga :Gcommit --amend<CR>
 " Sync
 nmap <Leader>gp :Gpull<CR>:Gpush<CR>
+vmap + :diffput<Cr>
+vmap - :diffget<Cr>
 
 " EasyMotion
 map s <Plug>(easymotion-s2)
