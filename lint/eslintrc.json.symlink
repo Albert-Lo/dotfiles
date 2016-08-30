@@ -6,8 +6,7 @@
     "jquery": true
   },
   "plugins": [
-    "react",
-    "transform-class-properties"
+    "react"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
