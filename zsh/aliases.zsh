@@ -7,10 +7,10 @@ alias vim="nvim"
 # Filesystem aliases
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+# alias ..='cd ..'
+# alias ...='cd ../..'
+# alias ....="cd ../../.."
+# alias .....="cd ../../../.."
 alias rf="rm -rf"
 alias c='cd $CODE_DIR'
 alias d='cd $DOTFILES'
@@ -60,3 +60,6 @@ alias -s js='node'
 alias rmtmp="sudo rm -rf ~/.vim-tmp ~/.tmp ~/tmp /var/tmp /tmp"
 
 alias bump="git pull && npm version patch && git push && npm publish"
+
+# gitignore shortcut
+alias ign="echo 'node_modules' > .gitignore"

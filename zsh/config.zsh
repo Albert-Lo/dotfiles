@@ -25,6 +25,7 @@ setopt COMPLETE_ALIASES
 bindkey "∫" backward-word
 bindkey "∑" forward-word
 bindkey "¢" end-of-line
+bindkey "^E" end-of-line
 bindkey "º" beginning-of-line
 bindkey "≈" delete-char
 bindkey "∂" delete-word

@@ -20,7 +20,7 @@ Plug 'gregsexton/gitv' " Visual git tree
 Plug 'mileszs/ack.vim' " Searching
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'scrooloose/nerdtree' " File drawer
-Plug 'sirver/ultisnips' " Snippet
+" Plug 'sirver/ultisnips' " Snippet
 Plug 'tpope/vim-abolish' " Smart text replacement and spelling correction
 Plug 'tpope/vim-commentary' " Comment toggle
 Plug 'tpope/vim-fugitive' " git plugin
