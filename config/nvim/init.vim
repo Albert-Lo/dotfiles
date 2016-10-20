@@ -30,6 +30,9 @@ Plug 'tpope/vim-surround' " Surround text with stuff
 Plug 'valloric/youcompleteme' " Completion suggestion
 Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Status line theme
+Plug 'kana/vim-textobj-user' " Customer text object
+Plug 'julian/vim-textobj-variable-segment' " Variable text object
+Plug 'michaeljsmith/vim-indent-object' " Indent text object
 
 " Languages specific
 Plug 'ap/vim-css-color'
