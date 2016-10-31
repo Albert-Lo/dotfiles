@@ -20,19 +20,24 @@ Plug 'gregsexton/gitv' " Visual git tree
 Plug 'mileszs/ack.vim' " Searching
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'scrooloose/nerdtree' " File drawer
-" Plug 'sirver/ultisnips' " Snippet
 Plug 'tpope/vim-abolish' " Smart text replacement and spelling correction
 Plug 'tpope/vim-commentary' " Comment toggle
 Plug 'tpope/vim-fugitive' " git plugin
 Plug 'tpope/vim-obsession' " Save vim session
 Plug 'tpope/vim-repeat' " Use . to repeat more action
 Plug 'tpope/vim-surround' " Surround text with stuff
-Plug 'valloric/youcompleteme' " Completion suggestion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Status line theme
-Plug 'kana/vim-textobj-user' " Customer text object
+Plug 'kana/vim-textobj-user' " Customised text object
 Plug 'julian/vim-textobj-variable-segment' " Variable text object
+Plug 'tkhren/vim-textobj-numeral' " Number text object
 Plug 'michaeljsmith/vim-indent-object' " Indent text object
+Plug 'ntpeters/vim-better-whitespace' " Show and trim whitespace
+Plug 'kshenoy/vim-signature' " Display line marks
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file search
+"Plug 'severin-lemaignan/vim-minimap'
 
 " Languages specific
 Plug 'ap/vim-css-color'
@@ -61,11 +66,30 @@ let mapleader = " "
 
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd CompleteDone * pclose
+"set splitbelow
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+let g:deoplete#enable_at_startup = 1
 " Disable default elm-vim mapping
 let g:elm_setup_keybindings = 0
+
+" Signature + Git gutter
+let g:SignatureMarkTextHLDynamic = 1
+let g:SignatureMarkerLineHL = 1
+
+
+" CtrlP
+"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|node_modules|bin|build|public)$',
+  \ 'file': '\v\.(exe|so|dll|tmp|csv|rdb)$',
+  \ }
 
 " code folding settings
 set foldnestmax=10 " deepest fold is 10 levels
@@ -128,6 +152,8 @@ set title
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+let g:python_host_prog = '/usr/local/bin/python3'
+
 " You Complete me
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 let g:ycm_semantic_triggers = {'elm' : ['.']}
@@ -152,8 +178,11 @@ let g:neomake_logfile=$HOME.'/neomake.log'
 autocmd! BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
 
-" Multi-cursor
-"let g:multi_cursor_quit_key='<Esc>'
+" Tabularize
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => StatusLine
@@ -198,10 +227,11 @@ nnoremap <Down> :<Down>
 vnoremap <Up> :<Up>
 vnoremap <Down> :<Down>
 
-" Repeat last macro(option + ')
-nmap æ @@
+" Repeat last macro(option + ,)
+nmap ≤ @@
+
 " Exec q macro
-nmap ' @q
+nmap , @q
 
 " Delete without copying
 nmap <C-d> "_d
@@ -210,7 +240,7 @@ vmap <C-d> "_d
 
 " Paste without copying in visual mode
 vmap p "_dP
- 
+
 " Saving
 nmap <silent> <C-s> :w<CR>
 imap <silent> <C-s> <Esc>:w<CR>a
@@ -227,7 +257,7 @@ command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
 
-" git 
+" git
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gd :Gvdiff<CR>
 nmap <Leader>gh :Gvdiff HEAD<CR>
@@ -259,6 +289,9 @@ map  N <Plug>(easymotion-prev)
 " Folding method
 nmap <Leader>zs :set foldmethod=syntax<CR>
 nmap <Leader>zi :set foldmethod=indent<CR>
+
+" Trim whitespace
+nmap <Leader>t :StripWhitespace<CR>:w<CR>
 
 nmap <silent> <Leader>[ :NERDTreeToggle<CR>
 nmap <C-p><C-w> :execute "CtrlP ".$CODE_DIR <CR>
@@ -300,6 +333,9 @@ nnoremap - <C-x>
 
 " Join line
 nmap K kJ
+
+" Next marker
+nmap M ]'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions

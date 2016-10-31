@@ -67,10 +67,17 @@ BASE16_SHELL="$DOTFILES/config/base16-shell/$THEME.$BACKGROUND.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 source $BASE16_SHELL
 
+WINDOW_NAME=$(tmux display-message -p '#W')
+
 if [ "$TMUX" ]; then
   SESSION_NAME=$(tmux display-message -p "#S")
   if [ "$SESSION_NAME" = "htop" ]; then
     htop
+  fi
+  if [ "$SESSION_NAME" = "ssh" ]; then
+    if [ "$WINDOW_NAME" != "reattach-to-user-namespace" ] && [ "$WINDOW_NAME" != "zsh" ]; then
+      ew
+    fi
   fi
 else
   tmux new -d -s random 2> /dev/null;

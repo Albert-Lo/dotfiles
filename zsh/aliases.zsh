@@ -17,7 +17,7 @@ alias d='cd $DOTFILES'
 alias l.='ls -d .*' # List dotfiles
 alias l='k -h' # List dotfiles
 alias df='df -h' # disk free, in Gigabytes, not bytes
-alias du='du -h -c | sort -h' # calculate disk usage for a folder
+alias du='du -h -c -d 1 | gsort -h -r' # calculate disk usage for a folder
 
 # Vim shortcut
 alias v='nvim .'
@@ -33,7 +33,7 @@ alias grep='grep --color=auto'
 # IP addresses
 alias ip='echo "Public: $(dig +short myip.opendns.com @resolver1.opendns.com)\nLocal: $(ipconfig getifaddr en0)"'
 # Active ports
-alias ports="sudo lsof -i -P | grep -i 'listen'"
+alias ports="sudo lsof -P | grep -i 'listen'"
 # Wifi password
 alias wp="wifi-password"
 
@@ -63,3 +63,6 @@ alias bump="git pull && npm version patch && git push && npm publish"
 
 # gitignore shortcut
 alias ign="echo 'node_modules' > .gitignore"
+
+# fast ssh
+alias ew="eval $(tmux display-message -p '#W')"
