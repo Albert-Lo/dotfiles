@@ -1,10 +1,9 @@
-" Plugins
+" Albertins
 call plug#begin("~/.config/nvim/plugged")
 
 " colorschemes
 Plug 'chriskempson/base16-vim'
 
-"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'terryma/vim-expand-region'
 "Plug 'terryma/vim-multiple-cursors'
 " Plug 'Shougo/unite.vim'
@@ -16,7 +15,7 @@ Plug 'benekastah/neomake' " Async runner
 Plug 'easymotion/vim-easymotion'
 Plug 'gioele/vim-autoswap' " Painless swap file management
 Plug 'godlygeek/tabular' " Align text
-Plug 'gregsexton/gitv' " Visual git tree
+" Plug 'gregsexton/gitv' " Visual git tree
 Plug 'mileszs/ack.vim' " Searching
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'scrooloose/nerdtree' " File drawer
@@ -37,6 +36,8 @@ Plug 'michaeljsmith/vim-indent-object' " Indent text object
 Plug 'ntpeters/vim-better-whitespace' " Show and trim whitespace
 Plug 'kshenoy/vim-signature' " Display line marks
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file search
+Plug 'dyng/ctrlsf.vim' " Better global search
+Plug 'cohama/agit.vim' " Better git log
 "Plug 'severin-lemaignan/vim-minimap'
 
 " Languages specific
@@ -75,6 +76,7 @@ let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
 " Disable default elm-vim mapping
 let g:elm_setup_keybindings = 0
 
@@ -233,9 +235,23 @@ nmap ≤ @@
 " Exec q macro
 nmap , @q
 
+" Ctrl Shift from SUBL2
+nmap <C-f> :CtrlSF
+
+
+" Get current selection and find in the file or globally
+vmap <C-f> "fy/<C-r>f
+vmap <C-g> "fy:CtrlSF <C-r>f
+
+" Short cut for word text object of the above visual mode mappings
+nmap * viw<C-f>
+nmap # viw<C-g>
+
+" Get current selection and do replace in the file with prompt
+vmap <C-r> "fy:%s/<C-r>f//gc<Left><Left><Left>
+
 " Delete without copying
 nmap <C-d> "_d
-nmap <C-D> "_dd
 vmap <C-d> "_d
 
 " Paste without copying in visual mode
@@ -262,10 +278,10 @@ nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gd :Gvdiff<CR>
 nmap <Leader>gh :Gvdiff HEAD<CR>
 nmap <Leader>gb :Gblame<CR>
-nmap <Leader>gl :silent Glog<CR>
-nmap <Leader>gv :Gitv<CR>
-nmap <C-J> :cnext<CR>
-nmap <C-K> :cprevious<CR>
+nmap <Leader>gv :silent Glog<CR>
+nmap <Leader>gl :Agit<CR>
+nmap <Leader>gj :cnext<CR>
+nmap <Leader>gk :cprevious<CR>
 nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>ga :Gcommit --amend<CR>
 " Sync
@@ -328,7 +344,7 @@ inoremap [<CR> [<CR>]<Esc>O
 inoremap (<CR> (<CR>)<Esc>O
 
 " Number
-nnoremap = <C-A>
+nnoremap = <C-a>
 nnoremap - <C-x>
 
 " Join line
@@ -336,6 +352,12 @@ nmap K kJ
 
 " Next marker
 nmap M ]'
+
+" Syntax specific
+" React/JSX
+" Self closing tag
+nmap <Leader>sc 0f>ald$i /<Esc>
+imap <C-i> <Esc><Leader>sc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
