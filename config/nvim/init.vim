@@ -3,6 +3,8 @@ call plug#begin("~/.config/nvim/plugged")
 
 " colorschemes
 Plug 'chriskempson/base16-vim'
+Plug 'dikiaap/minimalist'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 "Plug 'terryma/vim-expand-region'
 "Plug 'terryma/vim-multiple-cursors'
@@ -39,6 +41,7 @@ Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file search
 Plug 'dyng/ctrlsf.vim' " Better global search
 Plug 'cohama/agit.vim' " Better git log
 "Plug 'severin-lemaignan/vim-minimap'
+Plug 'unblevable/quick-scope' " Better inline movement
 
 " Languages specific
 Plug 'ap/vim-css-color'
@@ -83,6 +86,9 @@ let g:elm_setup_keybindings = 0
 " Signature + Git gutter
 let g:SignatureMarkTextHLDynamic = 1
 let g:SignatureMarkerLineHL = 1
+
+" Allow bold
+let g:enable_bold_font = 1
 
 
 " CtrlP
@@ -135,7 +141,9 @@ syntax on
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 execute "set background=".$BACKGROUND
-execute "colorscheme ".$THEME
+" colorscheme minimalist
+colorscheme base16-material-dark
+" execute "colorscheme ".$THEME
 
 set number
 set autoindent
@@ -221,7 +229,11 @@ xnoremap <  <gv
 xnoremap >  >gv
 
 " open up command history and toggle insert mode
-nmap ; q:i
+nmap … q:i
+
+" Switch 0 and ^
+nnoremap 0 ^
+nnoremap ^ 0
 
 " open up command history
 nnoremap <Up> :<Up>
@@ -229,19 +241,18 @@ nnoremap <Down> :<Down>
 vnoremap <Up> :<Up>
 vnoremap <Down> :<Down>
 
-" Repeat last macro(option + ,)
-nmap ≤ @@
+" Repeat last macro(option + shift + ,)
+nmap ¯ @@
 
-" Exec q macro
-nmap , @q
+" Exec q macro (option + ,)
+nmap ≤ @q
 
-" Ctrl Shift from SUBL2
+" Ctrl Shift f from SUBL2
 nmap <C-f> :CtrlSF
 
-
 " Get current selection and find in the file or globally
-vmap <C-f> "fy/<C-r>f
-vmap <C-g> "fy:CtrlSF <C-r>f
+vmap <C-f> "xy/<C-r>x
+vmap <C-g> "fx:CtrlSF <C-r>x
 
 " Short cut for word text object of the above visual mode mappings
 nmap * viw<C-f>
@@ -291,8 +302,8 @@ vmap - :diffget<Cr>
 
 " EasyMotion
 map s <Plug>(easymotion-s2)
-map f <Plug>(easymotion-fl)
-map F <Plug>(easymotion-Fl)
+" map f <Plug>(easymotion-fl)
+" map F <Plug>(easymotion-Fl)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
@@ -301,6 +312,16 @@ omap / <Plug>(easymotion-tn)
 
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
+" File(all lines) text object hack
+nmap yaa :%y<CR>
+nmap daa :%d<CR>
+
+" Copy all to new buffer in new window
+nmap <C-o> :call CopyToNewBuffer('')<cr>
+" Filter out lines with regex or selection
+nmap <C-m><C-f> :call CopyToNewBuffer('//')<Left><Left><Left>
+vmap <C-m><C-f> "xy:call CopyToNewBuffer('/<C-r>x/')<cr>
 
 " Folding method
 nmap <Leader>zs :set foldmethod=syntax<CR>
@@ -313,8 +334,8 @@ nmap <silent> <Leader>[ :NERDTreeToggle<CR>
 nmap <C-p><C-w> :execute "CtrlP ".$CODE_DIR <CR>
 
 " Buffer navigation
-nmap <silent> { :bprevious<CR>
-nmap <silent> } :bnext<CR>
+nmap <silent> { :bprevious!<CR>
+nmap <silent> } :bnext!<CR>
 
 " Quit
 nmap <silent> <ESC> :q!<CR>
@@ -367,14 +388,29 @@ imap <C-i> <Esc><Leader>sc
 " move to the window in the direction shown, or create a new window
 function! WinMove(key)
   let t:curwin = winnr()
+  let t:curfiletype = &filetype
   exec "wincmd ".a:key
   if (t:curwin == winnr())
     if (match(a:key,'[jk]'))
-      wincmd v
+      vnew
     else
-      wincmd s
+      new
     endif
     exec "wincmd ".a:key
+    exec "set filetype=".t:curfiletype
+  endif
+endfunction
+
+function! CopyToNewBuffer(regex)
+  let l:curfiletype = &filetype
+  let l:lineno = line(".")
+  %y z
+  enew
+  exec "set filetype=".l:curfiletype
+  silent %pu! z
+  exec "".l:lineno
+  if (strlen(a:regex))
+    exec "silent v" . a:regex . "d"
   endif
 endfunction
 
@@ -392,5 +428,3 @@ function! Qfa()
     let s:prev_val = s:curr_val
   endfor
 endfunction
-
-command! Qfa call Qfa()
