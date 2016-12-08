@@ -428,3 +428,52 @@ function! Qfa()
     let s:prev_val = s:curr_val
   endfor
 endfunction
+
+
+" Rotating text for sceen saving
+"""""""""""""""""""""""
+" Start
+"""""""""""""""""""""""
+function! s:RotateString(string)
+  let split_string = split(a:string, '\zs')
+  return join(split_string[-1:] + split_string[:-2], '')
+endfunction
+
+function! s:RotateLine(line)
+  return substitute(
+      \ a:line,
+      \ '^\(\s*\)\(.\{-}\)\(\s*\)$',
+      \ '\=submatch(1) . <SID>RotateString(submatch(2)) . submatch(3)',
+      \ ''
+  \ )
+endfunction
+
+function! s:RotateLines()
+  let saved_view = winsaveview()
+  let first_visible_line = line('w0')
+  let last_visible_line = line('w$')
+  let lines = getline(first_visible_line, last_visible_line)
+  DisableWhitespace
+  try
+    while 1 " <C-c> to exit
+      call map(lines, '<SID>RotateLine(v:val)')
+      call setline(first_visible_line, lines)
+      redraw
+      sleep 30m
+    endwhile
+  finally
+    if &modified
+      silent undo
+    endif
+    call winrestview(saved_view)
+    EnableWhitespace
+  endtry
+endfunction
+
+nnoremap <silent> <Plug>(RotateLines) :<C-u>call <SID>RotateLines()<CR>
+
+nmap \r <Plug>(RotateLines)
+
+"""""""""""""""""""""""
+" End
+"""""""""""""""""""""""
