@@ -64,7 +64,10 @@ export COFFEELINT_CONFIG="$HOME/.coffeelint.json"
 bindkey -v
 
 BASE16_SHELL="$DOTFILES/config/base16-shell/$THEME.$BACKGROUND.sh"
-# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+if [[ -f "$DOTFILES/config/nvim/plugged/vim-hybrid-material/base16-material/base16-material.$BACKGROUND.sh" ]]; then
+  export THEME="base16-material"
+  BASE16_SHELL="$DOTFILES/config/nvim/plugged/vim-hybrid-material/base16-material/base16-material.$BACKGROUND.sh"
+fi
 source $BASE16_SHELL
 
 WINDOW_NAME=$(tmux display-message -p '#W')
