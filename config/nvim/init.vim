@@ -6,9 +6,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'dikiaap/minimalist'
 Plug 'kristijanhusak/vim-hybrid-material'
 
-"Plug 'terryma/vim-expand-region'
-"Plug 'terryma/vim-multiple-cursors'
-" Plug 'Shougo/unite.vim'
+Plug 'terryma/vim-expand-region'
 Plug 'Raimondi/delimitMate' " Bracket completion
 Plug 'Xuyuanp/nerdtree-git-plugin' " Show git file status in nerdtree
 Plug 'Yggdroot/indentLine' " Indent guide
@@ -17,7 +15,6 @@ Plug 'benekastah/neomake' " Async runner
 Plug 'easymotion/vim-easymotion'
 Plug 'gioele/vim-autoswap' " Painless swap file management
 Plug 'godlygeek/tabular' " Align text
-" Plug 'gregsexton/gitv' " Visual git tree
 Plug 'mileszs/ack.vim' " Searching
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'scrooloose/nerdtree' " File drawer
@@ -40,8 +37,14 @@ Plug 'kshenoy/vim-signature' " Display line marks
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file search
 Plug 'dyng/ctrlsf.vim' " Better global search
 Plug 'cohama/agit.vim' " Better git log
-"Plug 'severin-lemaignan/vim-minimap'
 Plug 'unblevable/quick-scope' " Better inline movement
+Plug 'metakirby5/codi.vim' " Live evaluation
+Plug 'tyok/nerdtree-ack' " Add search to nerdree
+Plug 'tpope/vim-dispatch' " Async support
+
+" Tags and stuff
+Plug 'majutsushi/tagbar' " Ctags
+Plug 'lukaszkorecki/CoffeeTags' " Coffeescript tags
 
 " Languages specific
 Plug 'ap/vim-css-color'
@@ -136,6 +139,7 @@ set tm=500
 
 " switch syntax highlighting on
 syntax on
+syn keyword Todo contained TODO HACK FIXME UNDONE XXX
 
 "set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
@@ -193,6 +197,8 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+
+vmap v <Plug>(expand_region_expand)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => StatusLine
@@ -252,7 +258,7 @@ nmap <C-f> :CtrlSF
 
 " Get current selection and find in the file or globally
 vmap <C-f> "xy/<C-r>x
-vmap <C-g> "fx:CtrlSF <C-r>x
+vmap <C-g> "fy:CtrlSF <C-r>f
 
 " Short cut for word text object of the above visual mode mappings
 nmap * viw<C-f>
@@ -330,7 +336,8 @@ nmap <Leader>zi :set foldmethod=indent<CR>
 " Trim whitespace
 nmap <Leader>t :StripWhitespace<CR>:w<CR>
 
-nmap <silent> <Leader>[ :NERDTreeToggle<CR>
+nmap <silent> <Leader>[ :NERDTreeFind<CR>
+nmap <silent> <Leader>] :TagbarToggle<CR>
 nmap <C-p><C-w> :execute "CtrlP ".$CODE_DIR <CR>
 
 " Buffer navigation
@@ -340,7 +347,7 @@ nmap <silent> } :bnext!<CR>
 " Quit
 nmap <silent> <ESC> :q!<CR>
 " Resource init.vim and refresh file
-nmap <silent> <F5> :source ~/.config/nvim/init.vim<CR>:edit<CR>
+nmap <silent> <Leader>r :source ~/.config/nvim/init.vim<CR>:edit<CR>
 
 " Split navigation
 map <silent> ˙ :call WinMove('h')<cr>
