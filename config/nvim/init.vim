@@ -40,7 +40,6 @@ Plug 'cohama/agit.vim' " Better git log
 Plug 'unblevable/quick-scope' " Better inline movement
 Plug 'metakirby5/codi.vim' " Live evaluation
 Plug 'tyok/nerdtree-ack' " Add search to nerdree
-Plug 'tpope/vim-dispatch' " Async support
 
 " Tags and stuff
 Plug 'majutsushi/tagbar' " Ctags
