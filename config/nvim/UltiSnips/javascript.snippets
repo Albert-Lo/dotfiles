@@ -2,34 +2,50 @@ snippet im
 import $1 from '$1';
 endsnippet
 
-snippet imr
-import React from 'react';
+snippet imc
+import $1 from 'sp-components/components/$1';
 endsnippet
 
-snippet exdr
+snippet iml
+import _ from 'lodash';
+endsnippet
+
+snippet react
+import React from 'react';
+import PropTypes from 'prop-types';
+
 export default class $1 extends React.Component {
+  static propTypes = {
+  }
+
+  state = {}
+
   render() {
     return (
-      $0
+	    <div className="$1">
+	    </div>
     );
   }
 }
 endsnippet
 
-snippet class 
-class $1 extends React.Component {
-  render() {
-	return (
-	  $0
-	);
-  }
+snippet select
+function select(state) {
+  return {
+
+  };
 }
+
+export default connect(select)($0);
 endsnippet
 
-snippet iif
-{(() => {
-  if ($1) {
-    $0
-  }
-})()}
+snippet vias
+function select(state) {
+  let {$1} = state.vias;
+  return {
+
+  };
+}
+
+export default connect(select)(vias()($0));
 endsnippet
