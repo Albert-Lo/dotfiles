@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline-themes' " Status line theme
 Plug 'kana/vim-textobj-user' " Customised text object
 Plug 'julian/vim-textobj-variable-segment' " Variable text object
 Plug 'tkhren/vim-textobj-numeral' " Number text object
+Plug 'fvictorio/vim-textobj-backticks' " Back tick text objec
 Plug 'michaeljsmith/vim-indent-object' " Indent text object
 Plug 'ntpeters/vim-better-whitespace' " Show and trim whitespace
 Plug 'kshenoy/vim-signature' " Display line marks
@@ -40,6 +41,12 @@ Plug 'cohama/agit.vim' " Better git log
 Plug 'unblevable/quick-scope' " Better inline movement
 Plug 'metakirby5/codi.vim' " Live evaluation
 Plug 'tyok/nerdtree-ack' " Add search to nerdree
+Plug 'neovim/node-host' " JS Plugin
+Plug 'AndrewRadev/splitjoin.vim' " Simple joining/splitting line based on language
+Plug 'vimwiki/vimwiki' " Personal Wiki
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Tags and stuff
 Plug 'majutsushi/tagbar' " Ctags
@@ -52,7 +59,7 @@ Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'kchmck/vim-coffee-script'
-Plug 'mattn/emmet-vim'
+Plug 'BertLo/emmet-vim'
 Plug 'moll/vim-node'
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
@@ -60,6 +67,14 @@ Plug 'othree/html5.vim'
 "Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'wavded/vim-stylus'
+" Plug 'snoe/nvim-parinfer.js'
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
+Plug 'chr4/nginx.vim'
+Plug 'Quramy/tsuquyomi' " Typescript tooling
+Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/nvim-typescript'
+
 
 call plug#end()
 
@@ -70,10 +85,21 @@ set clipboard=unnamed
 set ttyfast
 let mapleader = " "
 
+" File navigation
+set suffixesadd+=.js
+set suffixesadd+=.coffee
+set suffixesadd+=.jsx
+set suffixesadd+=.json
+
+" switch syntax highlighting on
+syntax on
+syn keyword Todo contained TODO HACK FIXME UNDONE XXX
+
+autocmd BufWinEnter * if line2byte(line("$") + 1) > 50000 | syntax clear | endif
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd CompleteDone * pclose
-"set splitbelow
+set splitbelow
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 
@@ -136,16 +162,13 @@ set visualbell
 set t_vb=
 set tm=500
 
-" switch syntax highlighting on
-syntax on
-syn keyword Todo contained TODO HACK FIXME UNDONE XXX
 
 "set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 execute "set background=".$BACKGROUND
 " colorscheme minimalist
-colorscheme base16-material-dark
+colorscheme base16-ocean
 " execute "colorscheme ".$THEME
 
 set number
@@ -217,6 +240,17 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => signature
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:SignatureMap = {
+  \ 'PlaceNextMark'      :  "mm",
+  \ 'PurgeMarks'         :  "m<Space>",
+  \ 'GotoNextLineByPos'  :  ")",
+  \ 'GotoPrevLineByPos'  :  "(",
+  \ }
+
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
 
@@ -270,6 +304,9 @@ vmap <C-r> "fy:%s/<C-r>f//gc<Left><Left><Left>
 nmap <C-d> "_d
 vmap <C-d> "_d
 
+" Next and repeat action (option + n)
+nmap ˜ n.
+
 " Paste without copying in visual mode
 vmap p "_dP
 
@@ -314,6 +351,10 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+map f <Plug>(easymotion-fln)
+omap f <Plug>(easymotion-fln)
+map F <Plug>(easymotion-Fln)
+omap F <Plug>(easymotion-Fln)
 
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
@@ -383,8 +424,13 @@ nmap M ]'
 " Syntax specific
 " React/JSX
 " Self closing tag
-nmap <Leader>sc 0f>ald$i /<Esc>
+nmap <Leader>sc 0f><cr>i /<Esc>
 imap <C-i> <Esc><Leader>sc
+
+" Typescript Hint
+nmap Th :echo tsuquyomi#hint()<cr>
+
+highlight Pmenu ctermbg=244 gui=bold
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
