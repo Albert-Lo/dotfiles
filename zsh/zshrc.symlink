@@ -2,6 +2,15 @@ export DOTFILES=$HOME/dotfiles
 export ZPLUG=$HOME/.zplug/repos
 export ZSH=$DOTFILES/zsh
 
+# Tiny Care
+
+export TTC_BOTS='tinycarebot,selfcare_bot,magicrealismbot'
+export TTC_SAY_BOX='bunny'
+export TTC_REPOS='~/oo'
+export TTC_WEATHER='San Francisco'
+export TTC_APIKEYS=false
+
+
 source "$( brew --prefix )"/opt/zplug/init.zsh
 # zplug "hlissner/zsh-autopair", nice:10
 # zplug "supercrabtree/k"
