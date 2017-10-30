@@ -126,6 +126,8 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|node_modules|bin|build|public)$',
   \ 'file': '\v\.(exe|so|dll|tmp|csv|rdb)$',
   \ }
+let g:ctrlp_user_command = 'rg %s --files --color=never  --glob "!node_modules" --glob "!bower_components" --glob "!public/*" --glob "!*.png" --glob "!*.svg" --glob "!*.pdf" --glob "!*.jpg" --glob "!*.jpg" --glob "!dist/*"'
+let g:ctrlp_use_caching = 0
 
 " code folding settings
 set foldnestmax=10 " deepest fold is 10 levels

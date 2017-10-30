@@ -97,3 +97,5 @@ else
   tmux a -t random;
 fi
 
+# source rust
+source $HOME/.cargo/env
