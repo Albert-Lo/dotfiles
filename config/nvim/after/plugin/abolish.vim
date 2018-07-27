@@ -7,4 +7,6 @@ Abolish foramt format
 Abolish reutnr return
 Abolish reutrn return
 Abolish conosle console
+Abolish reuiqre require
+Abolish campaing{,Id} campaign{}
 

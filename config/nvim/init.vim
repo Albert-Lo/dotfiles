@@ -21,6 +21,7 @@ Plug 'scrooloose/nerdtree' " File drawer
 Plug 'tpope/vim-abolish' " Smart text replacement and spelling correction
 Plug 'tpope/vim-commentary' " Comment toggle
 Plug 'tpope/vim-fugitive' " git plugin
+Plug 'idanarye/vim-merginal' " git branches plugin
 Plug 'tpope/vim-obsession' " Save vim session
 Plug 'tpope/vim-repeat' " Use . to repeat more action
 Plug 'tpope/vim-surround' " Surround text with stuff
@@ -73,8 +74,8 @@ Plug 'guns/vim-clojure-static'
 Plug 'chr4/nginx.vim'
 Plug 'Quramy/tsuquyomi' " Typescript tooling
 Plug 'leafgarland/typescript-vim'
-Plug 'mhartington/nvim-typescript'
-
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'ianks/vim-tsx'
 
 call plug#end()
 
@@ -139,10 +140,7 @@ set undodir=$HOME/.vimundo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-if has('keyboard')
-    set mouse=a
-    " set ttymouse=xterm2
-endif
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User Interface
@@ -193,13 +191,13 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 let g:python_host_prog = '/usr/local/bin/python3'
 
 " You Complete me
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-let g:ycm_semantic_triggers = {'elm' : ['.']}
+" let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+" let g:ycm_semantic_triggers = {'elm' : ['.']}
 
 "" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -255,6 +253,10 @@ let g:SignatureMap = {
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
+
+" TS setting
+let g:tsuquyomi_completion_detail = 1 " Show detail for autocomplete
+let g:tsuquyomi_disable_quickfix = 1 " No quickfix for complie error
 
 " Control P
 "let g:ctrlp_map = '<c-p>'
@@ -333,6 +335,7 @@ nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gd :Gvdiff<CR>
 nmap <Leader>gh :Gvdiff HEAD<CR>
 nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gB :Merginal<CR>
 nmap <Leader>gv :silent Glog<CR>
 nmap <Leader>gl :Agit<CR>
 nmap <Leader>gj :cnext<CR>
@@ -430,7 +433,8 @@ nmap <Leader>sc 0f><cr>i /<Esc>
 imap <C-i> <Esc><Leader>sc
 
 " Typescript Hint
-nmap Th :echo tsuquyomi#hint()<cr>
+nmap Th : <C-u>echo tsuquyomi#hint()<CR>
+
 
 highlight Pmenu ctermbg=244 gui=bold
 

@@ -66,3 +66,6 @@ alias ign="echo 'node_modules' > .gitignore"
 
 # fast ssh
 alias ew="eval $(tmux display-message -p '#W')"
+
+# change pajamas server
+alias pj="sudo /var/oo/etc/scripts/changePajamasMac.sh -s"
