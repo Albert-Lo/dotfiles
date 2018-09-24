@@ -33,9 +33,6 @@ if [[ -d ~/oo ]]; then
     export CODE_DIR=~/oo
 fi
 
-# source all .zsh files inside of the zsh/ directory
-for config ($ZSH/*.zsh) source $config
-
 if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
@@ -91,11 +88,15 @@ if [ "$TMUX" ]; then
       ew
     fi
   fi
-else
-  tmux new -d -s random 2> /dev/null;
-  tmux send-keys -t random 'tmux clock-mode' C-m;
-  tmux a -t random;
+# else
+#   tmux new -d -s random 2> /dev/null;
+#   tmux send-keys -t random 'tmux clock-mode' C-m;
+#   tmux a -t random;
 fi
 
 # source rust
 source $HOME/.cargo/env
+
+# source all .zsh files inside of the zsh/ directory
+for config ($ZSH/*.zsh) source $config
+
